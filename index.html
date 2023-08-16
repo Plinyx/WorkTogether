@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+    }
+
+    .slides {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        color: #fff;
+        scroll-snap-align: start;
+    }
+
+    .slides ul li,
+    .slides ol li {
+        padding-bottom: 10px;
+    }
+
+    .slides img {
+        width: 350px;
+        order: -1;
+        /* Добавлено */
+    }
+
+    .slides h2 {
+        font-size: 40px;
+        font-weight: 600;
+        max-width: 650px;
+        margin-bottom: 20px;
+    }
+
+    .slides p {
+        margin-top: 20px;
+    }
+
+    .slide1 {
+        background: linear-gradient(454deg, #4f4080, #9553ff);
+    }
+
+    .slide2 {
+        background: linear-gradient(454deg, #404c80, #53ff88);
+    }
+
+    .slide3 {
+        background: linear-gradient(454deg, #9574ff, #ff5353);
+    }
+
+    .slide4 {
+        background: linear-gradient(454deg, #9574ff, #ff5353);
+    }
+
+    .slide5 {
+        background: linear-gradient(454deg, #9574ff, #ff5353);
+    }
+
+    .slide6 {
+        background: linear-gradient(454deg, #9574ff, #ff5353);
+    }
+
+    .slide7 {
+        background: linear-gradient(454deg, #9574ff, #ff5353);
+    }
+
+    .slide8 {
+        background: linear-gradient(454deg, #9574ff, #ff5353);
+    }
+
+    .slide9 {
+        background: linear-gradient(454deg, #9574ff, #ff5353);
+    }
+
+    @media screen and (max-width: 300px) {
+        .slide9 iframe {
+            width: 200px;
+            height: 150px;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .slides {
+            flex-direction: column;
+        }
+
+        .slide1 img {
+            width: 250px;
+        }
+
+        .slide1 h2,
+        .slide1 p {
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .slide2 img {
+            width: 260px;
+        }
+
+        .slide3 {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .slide3 img {
+            display: none;
+        }
+
+        .slide5 h1 {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .slide5 h2 {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .slide5 ul {
+            padding-left: 60px;
+            padding-right: 50px;
+        }
+
+        .slide6 img {
+            display: none;
+        }
+
+        .slide7 img {
+            display: none;
+        }
+
+        .slide8 img {
+            display: none;
+        }
+
+        .slide9 iframe {
+            width: 200px;
+            height: 150px;
+        }
+    }
+
+    @media screen and (max-width: 550px) {
+        .slides {
+            flex-direction: column;
+        }
+
+        .slide1 h2,
+        .slide1 p {
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .slide3 {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .slide3 img {
+            display: none;
+        }
+
+        .slide4 img {
+            width: 220px;
+        }
+
+        .slide4 h2 {
+            text-align: center;
+            font-size: 23px;
+        }
+
+        .slide4 ul {
+            padding-left: 30px;
+        }
+
+        .slide5 img {
+            width: 250px;
+        }
+
+        .slide5 h1 {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .slide5 h2 {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .slide5 ul {
+            padding-left: 60px;
+            padding-right: 50px;
+        }
+
+        .slide6 img {
+            width: 250px;
+        }
+
+        .slide6 h2 {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .slide6 ul {
+            padding-left: 60px;
+            padding-right: 50px;
+        }
+
+        .slide7 img {
+            width: 250px;
+        }
+
+        .slide7 h2 {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .slide7 ul {
+            padding-left: 60px;
+            padding-right: 50px;
+        }
+
+
+        .slide8 img {
+            width: 250px;
+        }
+
+        .slide8 h2 {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .slide8 ol {
+            padding-left: 60px;
+            padding-right: 50px;
+        }
+
+        .slide9 iframe {
+            width: 380px;
+            height: 760px;
+        }
+    }
+
+    @media screen and (min-width: 800px) {
+        /* .slides {
+            flex-direction: column;
+        } */
+
+        .slide3 {
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+    }
+
+    @media screen and (min-width: 900px) {
+        .slide3 {
+            padding-left: 150px;
+            padding-right: 150px;
+        }
+
+        .slide5 {
+            padding-left: 150px;
+            padding-right: 150px;
+        }
+
+        .slide6 {
+            padding-left: 150px;
+            padding-right: 150px;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="slides slide1">
+            <img src="images/photo_5359689208098309468_y-removebg.png">
+            <div>
+                <h2 class="natali" id="natali">Наталия Клевцова</h2>
+                <p>Киевский риэлтор в Германии​</p>
+            </div>
+        </div>
+        <div class="slides slide2">
+            <img src="images/pic-2.png">
+            <div>
+                <h2>Повестка дня​</h2>
+                <ul>
+                    <li>Кто я​</li>
+                    <li>О чем консультация​​</li>
+                    <li>Кому подойдет эта консультация​​</li>
+                    <li>Что будет на консультации​</li>
+                    <li>Формат консультации​</li>
+                    <li>Как записаться​​</li>
+                    <li>Стоимость​​</li>
+                    <li>Бонус​</li>​
+                </ul>
+            </div>
+        </div>
+        <div class="slides slide3">
+            <img src="images/pic-3.png">
+            <div>
+                <h2>Кто я?​</h2>
+                <ul>
+                    <li>Образование – магистр по специальности «Маркетинг и реклама»​​</li>
+                    <li>Более 10 лет работала в отделе маркетинга крупнейших украинских компаний.
+                        Работала с представительствами таких компаний как Microsoft, Intel, HP, Samsung и т.д.​​​
+                    </li>
+                    <li>В недвижимости с 2012 года​​</li>
+                    <li>С 2013 года владелица собственного агентства недвижимости в Киеве​​</li>
+                    <li>В марте 2022 выехала в Германию и за три месяца нашла работу риэлтора в местном агентстве
+                        недвижимости​​</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slides slide4">
+            <img src="images/pic-3.png">
+            <div>
+                <h2>О чем консультация​</h2>
+                <ul>
+                    <li>Как сделать карьеру в Германии​​​</li>
+                    <li>Как адаптироваться в чужой стране</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slides slide5">
+            <img src="images/pic-3.png">
+            <div>
+                <h2>Кому подойдет консультация​​</h2>
+                <h1>Украинцы, которые оказались в Германии и планируют тут:​
+                </h1>
+                <br>
+
+                <ul>
+                    <li>Оставаться​​​</li>
+                    <li>Развиваться​​​</li>
+                    <li>Просто хотят уйти на время пребывания в Германии от соцвыплат ​</li>
+                    <li>Хотят получать достойную зарплату и/или иметь перспективу​​</li>
+                    <li>Не знаете чем заняться​</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slides slide6">
+            <img src="images/pic-3.png">
+            <div>
+                <h2>Что будет на консультации​</h2>
+                <ul>
+                    <li>Увидите свои сильные и слабые стороны. Это поможет вам создать резюме и подготовить хорошую
+                        самопрезентацию на собеседование​​​​</li>
+                    <li>Определите профессиональное направление</li>
+                    <li>Сложится понимание как выбрать локацию​</li>
+                    <li>Получите инструменты для поиска работы​</li>
+                    <li>Получите пошаговую инструкцию по поиску работодателя​</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slides slide7">
+            <img src="images/pic-3.png">
+            <div>
+                <h2>Формат консультациии​​</h2>
+                <ul>
+                    <li>Заполнение анкеты-заявки​​​​</li>
+                    <li>Видеосозвон через Zoom​</li>
+                    <li>Продолжительность – Час​​</li>
+                    <li>Преимущества​ - индивидуальная проработка вашей проблемы​​</li>
+                    <li> - вам останется видеозапись консультации​</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slides slide8">
+            <img src="images/pic-3.png">
+            <div>
+                <h2>Как записаться​​​</h2>
+                <ol>
+                    <li> Заполнить анкету-заявку​​​​</li>
+                    <li> Сообщить мне о заполнении анкеты через WhatsApp по номеру телефона: +380637543377​​</li>
+                    <li> Получить реквизиты для оплаты услуги и согласовать со мной дату и время консультации​​​</li>
+                    ​
+                </ol>
+            </div>
+        </div>
+        <div class="slides slide9">
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdRGuY4mIQ8jPGDD696KmGBvT8-HQLGuMspUn4nZYhw2a53Bg/viewform?embedded=true"
+                width="1200" height="600" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+            <form>
+
+            </form>
+        </div>
+        <div class="slides slide10">
+
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>
